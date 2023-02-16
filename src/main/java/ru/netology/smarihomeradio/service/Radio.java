@@ -1,5 +1,11 @@
 package ru.netology.smarihomeradio.service;
 
+import lombok.*;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+
 public class Radio {
     private int maxCurrentStation = 9;
     private int minCurrentStation = 0;
@@ -11,58 +17,12 @@ public class Radio {
     private int currentVolume = minCurrentVolume;
     private int numberOfRadioStations = maxNumberOfRadioStations;
 
-    public Radio() {
-    }
 
     public Radio(int numberOfRadioStations, int maxNumberOfRadioStations) {
         this.numberOfRadioStations = numberOfRadioStations;
         this.maxNumberOfRadioStations = maxNumberOfRadioStations;
     }
 
-
-    public int getNumberOfRadioStations() {
-        return numberOfRadioStations;
-    }
-
-    public void setNumberOfRadioStations(int newNumberOfRadioStations) {
-        if (newNumberOfRadioStations > maxNumberOfRadioStations) {
-            return;
-        }
-        if (newNumberOfRadioStations < minNumberOfRadioStations) {
-            return;
-        }
-        numberOfRadioStations = newNumberOfRadioStations;
-
-    }
-
-    public int getCurrentStation() {
-
-        return currentStation;
-    }
-
-    public void setCurrentStation(int newCurrentStation) {
-        if (newCurrentStation > maxCurrentStation) {
-            return;
-        }
-        if (newCurrentStation < minCurrentStation) {
-            return;
-        }
-        currentStation = newCurrentStation;
-    }
-
-    public int getCurrentVolume() {
-        return currentVolume;
-    }
-
-    public void setCurrentVolume(int newCurrentVolume) {
-        if (newCurrentVolume > maxCurrentVolume) {
-            return;
-        }
-        if (newCurrentVolume < minCurrentVolume) {
-            return;
-        }
-        currentVolume = newCurrentVolume;
-    }
 
     public void nextNumberStation() {
         if (numberOfRadioStations < maxNumberOfRadioStations) {
