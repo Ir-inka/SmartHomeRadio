@@ -1,36 +1,39 @@
 package ru.netology.smarihomeradio.service;
 
 public class Radio {
+
+    private int currentStation;
+    private int currentVolume;
+    private int number;
+    private int maxNumber = 10;
+    private int minNumber = 0;
     private int maxCurrentStation = 9;
     private int minCurrentStation = 0;
     private int maxCurrentVolume = 100;
     private int minCurrentVolume = 0;
-    private int maxNumberOfRadioStations = 10;
-    private int minNumberOfRadioStations = 0;
-    private int currentStation = minCurrentStation;
-    private int currentVolume = minCurrentVolume;
-    private int numberOfRadioStations = maxNumberOfRadioStations;
+
 
     public Radio() {
     }
 
-    public Radio(int numberOfRadioStations) {
-        this.numberOfRadioStations = numberOfRadioStations;
+    public Radio(int maxNumber) {
+        this.maxNumber = maxNumber;
+
 
     }
 
     public int getNumberOfRadioStations() {
-        return numberOfRadioStations;
+        return number;
     }
 
     public void setNumberOfRadioStations(int newNumberOfRadioStations) {
-        if (newNumberOfRadioStations > maxNumberOfRadioStations) {
+        if (newNumberOfRadioStations > maxNumber) {
             return;
         }
-        if (newNumberOfRadioStations < minNumberOfRadioStations) {
+        if (newNumberOfRadioStations < minNumber) {
             return;
         }
-        numberOfRadioStations = newNumberOfRadioStations;
+        number = newNumberOfRadioStations;
 
     }
 
@@ -64,18 +67,18 @@ public class Radio {
     }
 
     public void nextNumberStation() {
-        if (numberOfRadioStations < maxNumberOfRadioStations) {
-            numberOfRadioStations++;
+        if (number < maxNumber) {
+            number++;
         } else {
-            numberOfRadioStations = minNumberOfRadioStations;
+            number = minNumber;
         }
     }
 
     public void previousNumberStation() {
-        if (numberOfRadioStations > minNumberOfRadioStations) {
-            numberOfRadioStations--;
+        if (number > minNumber) {
+            number--;
         } else {
-            numberOfRadioStations = maxNumberOfRadioStations;
+            number = (maxNumber - 1);
         }
     }
 
