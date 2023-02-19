@@ -23,26 +23,16 @@ public class RadioTest {
     @Test
     public void showStationFromPackage1() {
 
-        station.setNumberOfRadioStations(11);
+        station.setNumberOfRadioStations(9);
         int actual = station.getNumberOfRadioStations();
 
-        Assertions.assertEquals(0, actual);
+        Assertions.assertEquals(9, actual);
 
     }
 
     @Test
     public void showStationFromPackage2() {
 
-        station.setNumberOfRadioStations(-4);
-        int actual = station.getNumberOfRadioStations();
-
-        Assertions.assertEquals(0, actual);
-
-    }
-
-    @Test
-    public void showStationFromPackage3() {
-
         station.setNumberOfRadioStations(0);
         int actual = station.getNumberOfRadioStations();
 
@@ -52,56 +42,44 @@ public class RadioTest {
 
 
     @Test
-    public void nextNumberStation() {
+    public void nextNumberStationBorderMin() {
 
-        station.setNumberOfRadioStations(0);
+        station.setNumberOfRadioStations(-5);
         station.nextNumberStation();
         int actual = station.getNumberOfRadioStations();
         Assertions.assertEquals(1, actual);
     }
 
     @Test
-    public void nextNumberStation1() {
+    public void nextNumberStationBorderMax() {
 
         station.setNumberOfRadioStations(9);
         station.nextNumberStation();
         int actual = station.getNumberOfRadioStations();
-        Assertions.assertEquals(10, actual);
-    }
-
-    @Test
-    public void nextNumberStation2() {
-
-        station.setNumberOfRadioStations(-4);
-        station.nextNumberStation();
-        int actual = station.getNumberOfRadioStations();
-        Assertions.assertEquals(1, actual);
-    }
-
-    @Test
-    public void nextNumberStation3() {
-
-        station.setNumberOfRadioStations(30);
-        station.nextNumberStation();
-        int actual = station.getNumberOfRadioStations();
-        Assertions.assertEquals(1, actual);
-    }
-
-    @Test
-    public void nextNumberStation4() {
-        Radio station = new Radio(0);
-
-        station.setNumberOfRadioStations(1);
-        station.nextNumberStation();
-        int actual = station.getNumberOfRadioStations();
         Assertions.assertEquals(0, actual);
     }
+    @Test
+    public void nextNumberStationBorder() {
+
+        station.setNumberOfRadioStations(25);
+        station.nextNumberStation();
+        int actual = station.getNumberOfRadioStations();
+        Assertions.assertEquals(1, actual);
+    }
 
     @Test
-    public void nextNumberStation5() {
-        Radio station = new Radio(99);
+    public void nextNumberStationBorderMiddle() {
 
-        station.setNumberOfRadioStations(100);
+        station.setNumberOfRadioStations(5);
+        station.nextNumberStation();
+        int actual = station.getNumberOfRadioStations();
+        Assertions.assertEquals(6, actual);
+    }
+
+    @Test
+    public void nextNumberStationZero() {
+
+        station.setNumberOfRadioStations(0);
         station.nextNumberStation();
         int actual = station.getNumberOfRadioStations();
         Assertions.assertEquals(1, actual);
@@ -109,25 +87,7 @@ public class RadioTest {
 
 
     @Test
-    public void previousNumberStation() {
-
-        station.setNumberOfRadioStations(1);
-        station.previousNumberStation();
-        int actual = station.getNumberOfRadioStations();
-        Assertions.assertEquals(0, actual);
-    }
-
-    @Test
-    public void previousNumberStation1() {
-
-        station.setNumberOfRadioStations(10);
-        station.previousNumberStation();
-        int actual = station.getNumberOfRadioStations();
-        Assertions.assertEquals(9, actual);
-    }
-
-    @Test
-    public void previousNumberStation2() {
+    public void previousNumberStationBorderMin() {
 
         station.setNumberOfRadioStations(-5);
         station.previousNumberStation();
@@ -136,7 +96,25 @@ public class RadioTest {
     }
 
     @Test
-    public void previousNumberStation3() {
+    public void previousNumberStationBorderMax() {
+
+        station.setNumberOfRadioStations(100);
+        station.previousNumberStation();
+        int actual = station.getNumberOfRadioStations();
+        Assertions.assertEquals(9, actual);
+    }
+
+    @Test
+    public void previousNumberStationBorderMiddle() {
+
+        station.setNumberOfRadioStations(5);
+        station.previousNumberStation();
+        int actual = station.getNumberOfRadioStations();
+        Assertions.assertEquals(4, actual);
+    }
+
+    @Test
+    public void previousNumberStationZero() {
 
         station.setNumberOfRadioStations(0);
         station.previousNumberStation();
